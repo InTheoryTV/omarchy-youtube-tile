@@ -1,0 +1,96 @@
+/* Theater mode: the player covers the window. object-fit: cover stays
+   centered, so a wide tile barely trims a 16:9 frame and a narrow tile
+   zooms into the middle. YouTube's own fullscreen is left alone. */
+
+html.yt-tile,
+html.yt-tile body {
+  overflow: hidden !important;
+  background: #000 !important;
+}
+
+html.yt-tile #masthead-container,
+html.yt-tile ytd-masthead,
+html.yt-tile #guide,
+html.yt-tile tp-yt-app-drawer,
+html.yt-tile ytd-mini-guide-renderer,
+html.yt-tile #secondary,
+html.yt-tile #related,
+html.yt-tile #below,
+html.yt-tile #comments,
+html.yt-tile #chat,
+html.yt-tile ytd-comments,
+html.yt-tile ytd-watch-metadata,
+html.yt-tile ytd-merch-shelf-renderer,
+html.yt-tile ytd-donation-shelf-renderer,
+html.yt-tile ytd-live-chat-frame,
+html.yt-tile ytd-engagement-panel-section-list-renderer,
+html.yt-tile ytd-playlist-panel-renderer,
+html.yt-tile ytd-watch-next-secondary-results-renderer,
+html.yt-tile #ticket-shelf {
+  display: none !important;
+}
+
+html.yt-tile ytd-watch-flexy #full-bleed-container,
+html.yt-tile ytd-watch-flexy #player-full-bleed-container,
+html.yt-tile ytd-watch-flexy #player-theater-container,
+html.yt-tile ytd-watch-flexy #player-wide-container,
+html.yt-tile ytd-watch-flexy #player-container,
+html.yt-tile ytd-watch-flexy ytd-player,
+html.yt-tile ytd-watch-flexy #movie_player,
+html.yt-tile ytd-watch-grid #full-bleed-container,
+html.yt-tile ytd-watch-grid #player-full-bleed-container,
+html.yt-tile ytd-watch-grid #player-theater-container,
+html.yt-tile ytd-watch-grid ytd-player,
+html.yt-tile ytd-watch-grid #movie_player {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  z-index: 10000 !important;
+  background: #000 !important;
+}
+
+html.yt-tile .html5-video-container,
+html.yt-tile video.html5-main-video,
+html.yt-tile video.video-stream {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  left: 0 !important;
+  top: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* YouTube's xsmall player hides the theater button. That button is how
+   this mode is switched, including on a half tile. */
+ytd-watch-flexy:not([fullscreen]) .ytp-size-button.ytp-button,
+ytd-watch-grid:not([fullscreen]) .ytp-size-button.ytp-button {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 36px !important;
+  min-width: 36px !important;
+  height: 36px !important;
+  pointer-events: auto !important;
+}
+
+html.yt-tile .ytp-chrome-bottom,
+html.yt-tile .ytp-chrome-top,
+html.yt-tile .ytp-gradient-bottom,
+html.yt-tile .ytp-gradient-top,
+html.yt-tile .ytp-ad-module,
+html.yt-tile .ytp-caption-window-container {
+  z-index: 10001 !important;
+}
