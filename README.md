@@ -16,6 +16,8 @@ This is the player. Captions stay on it. The CC button, the timeline, and the re
 
 YouTube's theater control is the size button in the player (the rectangle icon). On a narrow tile YouTube hides that button, so a half window cannot enter theater. This extension keeps the button on screen.
 
+The fill runs on a watch page. Home, search, and subscriptions keep the header and scrolling, including when YouTube has theater saved from last time.
+
 Click it on a watch page:
 
 - The header, guide, title, comments, chat, and related videos hide.

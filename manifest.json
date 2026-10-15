@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube tile",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Theater mode fills an Omarchy Chromium window with the video. The picture follows the tile.",
   "content_scripts": [
     {

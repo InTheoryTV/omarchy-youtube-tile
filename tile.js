@@ -77,7 +77,15 @@
     return document.querySelector("ytd-watch-flexy, ytd-watch-grid");
   }
 
+  function onWatchPage() {
+    const path = location.pathname;
+    return path === "/watch" || path.startsWith("/live/");
+  }
+
   function tileOn() {
+    // YouTube keeps the theater flag on the watch element even on Home.
+    // The fill belongs on a watch page only, so Home can scroll and search.
+    if (!onWatchPage()) return false;
     const el = watchEl();
     if (!el || el.hasAttribute("fullscreen") || document.fullscreenElement) return false;
     return el.hasAttribute("theater") || el.hasAttribute("data-yt-tile");
