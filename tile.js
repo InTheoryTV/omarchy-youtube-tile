@@ -1,6 +1,13 @@
 /* The player UI lives in a shadow root, so the stylesheet cannot reach the
    video or the theater button. This script injects those rules there. */
 (function () {
+  // Only the Omarchy webapp (Chromium --app window) gets the tile. A normal
+  // browser tab keeps YouTube's own theater mode, including search and scrolling.
+  const appWindow =
+    window.matchMedia("(display-mode: standalone), (display-mode: minimal-ui)").matches ||
+    (window.locationbar && window.locationbar.visible === false);
+  if (!appWindow) return;
+
   const FILL_ID = "yt-tile-fill";
   const BUTTON_ID = "yt-tile-button";
   const armed = new WeakSet();

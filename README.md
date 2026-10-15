@@ -8,7 +8,7 @@ Omarchy already opens YouTube as a webapp with **Super+Shift+Y**, or:
 omarchy-launch-webapp https://youtube.com/
 ```
 
-That window is Chromium `--app` on the same profile as the browser. An extension loaded there applies to the webapp and to a normal YouTube tab.
+That window is a browser `--app` window on the same profile as the browser. The video-only fill runs there. A normal YouTube tab keeps the header, search, and scrolling. YouTube can still use its own theater layout in that tab.
 
 This is the player. Captions stay on it. The CC button, the timeline, and the rest of the player controls still show on hover. It is not a picture-in-picture window.
 
@@ -34,15 +34,17 @@ YouTube changes its page markup. When theater stops filling the window, the sele
 
 ## Install
 
-Chromium reads `~/.config/chromium-flags.conf` at startup. Omarchy's copy already has a `--load-extension=` line for its own extensions. Add this one to that line. Do not replace the file.
-
 ```bash
 ./install.sh
 ```
 
-The script copies the extension to `~/.config/omarchy/chromium/extensions/youtube-tile` and appends that path. Then quit Chromium completely. A reload of the YouTube tab is not enough, because the running process keeps its old flag list. Webapp windows are that same process.
+The script copies the extension to `~/.config/omarchy/chromium/extensions/youtube-tile`. Omarchy opens the webapp in the default browser. When that browser is Chromium, or anything Omarchy falls back to Chromium for, the script appends the extension to the existing `--load-extension=` line in `~/.config/chromium-flags.conf`. It does not replace the file or remove other extensions.
+
+Quit Chromium completely after that. A reload of a YouTube tab is not enough, because the running process keeps its old flag list. Webapp windows are that same process.
 
 `omarchy refresh chromium` rewrites the flags file from Omarchy's defaults and drops the extra path. Run `install.sh` again after a refresh.
+
+Brave, Chrome, Edge, Opera, Vivaldi, and Helium do not read Chromium's flag file, and those builds often ignore `--load-extension`. If one of them is the default browser, `install.sh` leaves the flags file alone and prints the manual step: open the browser's extensions page, turn on Developer mode, and choose Load unpacked on the copied folder. Brave's page is `brave://extensions`. That load survives `omarchy refresh chromium`.
 
 ## Ads
 
