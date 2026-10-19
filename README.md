@@ -34,6 +34,21 @@ The extension does not block ads. If one gets through, its layer stays above the
 
 YouTube changes its page markup. When theater stops filling the window, the selectors in `tile.css` and `tile.js` are what to update.
 
+## CRT
+
+The button just before the theater control is CRT, the cathode-ray tube this look comes from. The icon is a white classic set with rabbit ears.
+
+One click turns the look on. The same click turns it off. There are no sliders. The choice is remembered in this browser and starts off.
+
+While it is on, the playing video gets all of these together:
+
+- Scan lines across the picture.
+- A faint glare and darkened corners.
+- A slow tracking bar moving down the screen.
+- A 1-pixel twitch.
+
+The look starts on the watch-page picture. It stays when theater mode fills the tile. Captions and the player controls stay above it. Home, search, and a normal browser tab stay plain. Curved glass is not part of this look.
+
 ## Install
 
 ```bash

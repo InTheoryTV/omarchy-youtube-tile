@@ -2,6 +2,28 @@
    centered, so a wide tile barely trims a 16:9 frame and a narrow tile
    zooms into the middle. YouTube's own fullscreen is left alone. */
 
+@keyframes yt-tile-crt-jiggle {
+  0% { transform: translate(0, 0); filter: brightness(1); }
+  50% { transform: translate(1px, -1px); filter: brightness(1.08); }
+  100% { transform: translate(-1px, 0); filter: brightness(0.94); }
+}
+
+@keyframes yt-tile-crt-track {
+  from { top: -16%; }
+  to { top: 100%; }
+}
+
+.yt-tile-crt-overlay::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 16%;
+  top: -16%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: yt-tile-crt-track 8s linear infinite;
+}
+
 html.yt-tile,
 html.yt-tile body {
   overflow: hidden !important;
